@@ -1,0 +1,25 @@
+## Load C-code
+useDynLib(Repitools)
+
+#.onLoad <- function(lib, pkg) require(methods)
+
+#  All functions exported other than those starting with "."
+import(methods, BiocGenerics, S4Vectors, IRanges, GenomicRanges, GenomeInfoDb, BSgenome, edgeR)
+importFrom(aroma.affymetrix, AffymetrixCelSet)
+importFrom(parallel, detectCores, mclapply)
+importFrom(GenomicAlignments, findOverlaps, countOverlaps)
+importFrom(Biostrings, BString, letterFrequency, BStringSet, DNAStringSet)
+importFrom(Rsamtools, ScanBamParam, scanBamFlag)
+importFrom(GenomicAlignments, readGAlignments)
+importFrom(DNAcopy, CNA, smooth.CNA, segment)
+importFrom(MASS, rlm)
+importFrom(rtracklayer, import, BigWigFile)
+importFrom(Ringo, sliding.meansd)
+importFrom(gplots, colorpanel)
+importFrom(grid, grid.newpage, viewport, gList, gTree, grid.draw, grid.text, rectGrob, gpar)
+importFrom(gsmoothr, tmeanC)
+importFrom(cluster, pam)
+importFrom(Rsolnp, solnp)
+exportClasses(FastQC, SequenceQC, SequenceQCSet, ScoresList, ClusteredScoresList, QdnaData, BayMethList)
+exportMethods(show)
+exportPattern("^[^\\_|^\\.]")
